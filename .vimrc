@@ -1,7 +1,6 @@
-set backspace=2
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
+syntax on
 set hidden
 let mapleader = ","
 set showcmd
@@ -13,15 +12,14 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " very nice file browser
 Plugin 'scrooloose/nerdtree'
 " full path fuzzy search
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'Valloric/ListToggle'
-Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -59,33 +57,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 
 " YcmCompleter 
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-let g:syntastic_always_populate_loc_list = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_show_diagnostics_ui = 0
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
+"let g:syntastic_always_populate_loc_list = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"let g:ycm_show_diagnostics_ui = 0
 
 "ListToggle
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 
 
-"Syntastic
-let g:syntastic_cpp_clang_check_exec = '~/clang+llvm-3.6.2-x86_64-apple-darwin/bin/clang-check'
-let g:syntastic_c_clang_check_exec = '~/clang+llvm-3.6.2-x86_64-apple-darwin/bin/clang-check'
-let g:syntastic_mode_map = { 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['html'] }
-" Better :sign interface symbols
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '!'
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_cpp_checkers = ['clang_check']
-let g:syntastic_c_checkers = ['clang_check']
-let g:syntastic_cpp_clang_check_post_args = ""
-let g:syntastic_c_clang_check_post_args = ""
